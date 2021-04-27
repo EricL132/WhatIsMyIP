@@ -1,11 +1,11 @@
-#nav-bar {
+#whatip-whole-container #nav-bar {
   height: 60px;
-  box-shadow: 0px 0px 3px rgba(0,0,0,.5);
-  background-color: white;
   position: relative;
+  min-width: 1100px;
+  background-color: "#121212";
 }
 
-#website-name {
+#whatip-whole-container #website-name {
   width: 150px;
   text-align: center;
   font-size: 1.7rem;
@@ -13,25 +13,31 @@
   top: 50%;
   margin: 0;
   transform: translateY(-50%);
-  font-family: 'Fredoka One';
+  font-family: 'Source Code Pro', monospace;
   cursor: pointer;
-
+  color: rgb(187, 134, 252);
 }
 
-#nav-content{
- height: 100%;
- width: 1000px;
- position: absolute;
- left: 50%;
- transform: translateX(-50%);
+#whatip-whole-container {
+  background-color: #121212;
+  height: 100%;
 }
-#heading-container{
+
+#whatip-whole-container #nav-content {
+  height: 100%;
+  width: 1100px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#whatip-whole-container #heading-container {
   width: 400px;
   margin-top: 5rem;
   position: relative;
 }
 
-.mid-content-container{
+#whatip-whole-container .mid-content-container {
   width: 1000px;
   height: 400px;
   position: relative;
@@ -40,22 +46,20 @@
   font-weight: bold;
   color: #605e5e;
   font-family: 'Nunito', sans-serif;
-
-  
 }
 
-.flex-container{
+#whatip-whole-container .flex-container {
   display: inline-flex;
   justify-content: space-evenly;
 }
 
-#ip-container{
+#whatip-whole-container #ip-container {
   margin-top: 5rem;
   height: 200px;
   min-width: 400px;
   width: auto;
   background-color: white;
-  box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, .3);
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -65,26 +69,26 @@
   right: 30px;
 }
 
-
-
-.mini-span{
-  font-size: 1rem; 
+#whatip-whole-container .mini-span {
+  font-size: 1rem;
   user-select: none;
 }
-.title-span{
+
+#whatip-whole-container .title-span {
   font-size: 1.75rem;
 }
-.map {
+
+#whatip-whole-container .map {
   height: 400px;
   width: 100%;
   position: absolute;
 }
 
-.all-info-container{
+#whatip-whole-container .all-info-container {
   display: inline-block;
 }
 
-.combine-container{
+#whatip-whole-container .combine-container {
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -94,35 +98,36 @@
   margin: 1rem;
   border-radius: 5px;
   float: left;
-  box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, .3);
   overflow: hidden;
 }
 
-#search-ip-container{
+#whatip-whole-container #search-ip-container {
   height: 60px;
-
 }
-#search-box{
+
+#whatip-whole-container #search-box {
   position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   background-color: black;
   width: 500px;
 }
-#search-ip{
+
+#whatip-whole-container #search-ip {
   padding: .5rem 1rem;
   border: none;
   outline: none;
-  box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, .3);
   width: 400px;
 }
 
-#search-ip-container button{
+#whatip-whole-container #search-ip-container button {
   padding: .5rem 1rem;
   border: none;
   outline: none;
-  box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, .3);
   width: 100px;
   cursor: pointer;
 }

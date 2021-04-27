@@ -15,35 +15,24 @@ import Style from 'ol/style/Style'
 function App() {
   const [userInfo, setuserInfo] = useState()
   const [search, setSearch] = useState()
-  const [ipType,setIpType] = useState("IPv4")
+  const [ipType, setIpType] = useState("IPv4")
   function getIPInfo(search) {
+    let path = ""
     if (search) {
-      let path = search.trim();
-      if(path.includes("//")){
+      path = search.trim();
+      if (path.includes("//")) {
         path = path.split("//")[1].split("/")[0]
       }
-      fetch(`/api/ip/${path}`).then((res) => res.json()).then((data) => {
-        const map = document.getElementById("map")
-        if(map) map.innerHTML = ""
-        setuserInfo(data)
-        console.log(data)
-        if(data.query.includes(":")){
-          setIpType("IPv6")
-        }
-        loadMap([data.lon, data.lat])
-      })
-    } else {
-      fetch("/api/ip").then((res) => res.json()).then((data) => {
-        const map = document.getElementById("map")
-        if(map) map.innerHTML = ""
-        setuserInfo(data)
-        console.log(data)
-        if(data.query.includes(":")){
-          setIpType("IPv6")
-        }
-        loadMap([data.lon, data.lat])
-      })
     }
+    fetch(search ? `/api/ip/${path}` : "/api/ip").then((res) => res.json()).then((data) => {
+      const map = document.getElementById("map")
+      if (map) map.innerHTML = ""
+      setuserInfo(data)
+      if (data.query.includes(":")) {
+        setIpType("IPv6")
+      }
+      loadMap([data.lon, data.lat])
+    })
 
 
   }
@@ -104,17 +93,17 @@ function App() {
   }, [])
 
   return (
-    <>
+    <div id="whatip-whole-container" >
       <nav id="nav-bar">
-        <div id="nav-content" onClick={()=>{window.location.reload()}}>
+        <div id="nav-content" onClick={() => { window.location.reload() }}>
           <h1 id="website-name">IpInfo</h1>
         </div>
 
       </nav>
       <div id="search-ip-container">
         <div id="search-box">
-          <input id="search-ip" placeholder="Search-IP/Domain" onChange={(e)=>{setSearch(e.target.value)}}></input>
-          <button onClick={()=>{getIPInfo(search)}}>Search</button>
+          <input id="search-ip" placeholder="Search-IP/Domain" onChange={(e) => { setSearch(e.target.value) }}></input>
+          <button onClick={() => { getIPInfo(search) }}>Search</button>
         </div>
 
       </div>
@@ -129,49 +118,48 @@ function App() {
               <span className="title-span">{userInfo.city}, {userInfo.country}</span>
             </div>
           </div>
-          <div id="bottom-background">
-            <div className="mid-content-container all-info-container">
-              <div style={{ width: "100%", position: "relative", display: "flex" }}>
-                <div className="combine-container">
-                  <span className="mini-span">ISP</span>
-                  <span className="title-span">{userInfo.org}</span>
-                </div>
-              </div>
 
+          <div className="mid-content-container all-info-container" >
+            <div style={{ width: "100%", position: "relative", display: "flex", marginTop: "2rem" }}>
               <div className="combine-container">
-                <span className="mini-span">City</span>
-                <span className="title-span info-span">{userInfo.city}</span>
+                <span className="mini-span">ISP</span>
+                <span className="title-span">{userInfo.org}</span>
               </div>
-              <div className="combine-container">
-                <span className="mini-span">Region</span>
-                <span className="title-span info-span">{userInfo.regionName}</span>
-              </div>
-
-              <div className="combine-container">
-                <span className="mini-span">Country</span>
-                <span className="title-span info-span">{userInfo.country}</span>
-              </div>
-              <div className="combine-container">
-                <span className="mini-span">Zip</span>
-                <span className="title-span info-span">{userInfo.zip}</span>
-              </div>
-              <div className="combine-container">
-                <span className="mini-span">Latitude</span>
-                <span className="title-span info-span">{userInfo.lat}</span>
-              </div>
-              <div className="combine-container">
-                <span className="mini-span">Longitude</span>
-                <span className="title-span info-span">{userInfo.lon}</span>
-              </div>
-
             </div>
+
+            <div className="combine-container">
+              <span className="mini-span">City</span>
+              <span className="title-span info-span">{userInfo.city}</span>
+            </div>
+            <div className="combine-container">
+              <span className="mini-span">Region</span>
+              <span className="title-span info-span">{userInfo.regionName}</span>
+            </div>
+
+            <div className="combine-container">
+              <span className="mini-span">Country</span>
+              <span className="title-span info-span">{userInfo.country}</span>
+            </div>
+            <div className="combine-container">
+              <span className="mini-span">Zip</span>
+              <span className="title-span info-span">{userInfo.zip}</span>
+            </div>
+            <div className="combine-container">
+              <span className="mini-span">Latitude</span>
+              <span className="title-span info-span">{userInfo.lat}</span>
+            </div>
+            <div className="combine-container">
+              <span className="mini-span">Longitude</span>
+              <span className="title-span info-span">{userInfo.lon}</span>
+            </div>
+
           </div>
+
         </>
         : null}
+    </div>
 
 
-
-    </>
   );
 }
 

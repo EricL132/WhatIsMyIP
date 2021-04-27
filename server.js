@@ -6,7 +6,7 @@ const fetch = require("node-fetch")
 
 
 app.use("/api", router)
-router.get("/ip/**", (req, res) => {
+router.get("/ip/*", (req, res) => {
     const path = req.path.split("/")[2]
     fetch(`http://ip-api.com/json/${path}`).then((res) => res.json()).then((data) => {
         if (data.status === "fail") return res.status(400).end()
@@ -15,7 +15,7 @@ router.get("/ip/**", (req, res) => {
 })
 
 router.get("/ip", (req, res) => {
-    fetch(`http://ip-api.com/json/${req.ip}`).then((res) => res.json()).then((data) => {
+    fetch(`http://ip-api.com/json/`).then((res) => res.json()).then((data) => {
         if (data.status === "fail") return res.status(400).end()
         return res.status(200).send(data)
     })
