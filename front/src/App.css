@@ -1,0 +1,128 @@
+#nav-bar {
+  height: 60px;
+  box-shadow: 0px 0px 3px rgba(0,0,0,.5);
+  background-color: white;
+  position: relative;
+}
+
+#website-name {
+  width: 150px;
+  text-align: center;
+  font-size: 1.7rem;
+  position: relative;
+  top: 50%;
+  margin: 0;
+  transform: translateY(-50%);
+  font-family: 'Fredoka One';
+  cursor: pointer;
+
+}
+
+#nav-content{
+ height: 100%;
+ width: 1000px;
+ position: absolute;
+ left: 50%;
+ transform: translateX(-50%);
+}
+#heading-container{
+  width: 400px;
+  margin-top: 5rem;
+  position: relative;
+}
+
+.mid-content-container{
+  width: 1000px;
+  height: 400px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  color: #605e5e;
+  font-family: 'Nunito', sans-serif;
+
+  
+}
+
+.flex-container{
+  display: inline-flex;
+  justify-content: space-evenly;
+}
+
+#ip-container{
+  margin-top: 5rem;
+  height: 200px;
+  min-width: 400px;
+  width: auto;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 2rem;
+  position: absolute;
+  right: 30px;
+}
+
+
+
+.mini-span{
+  font-size: 1rem; 
+  user-select: none;
+}
+.title-span{
+  font-size: 1.75rem;
+}
+.map {
+  height: 400px;
+  width: 100%;
+  position: absolute;
+}
+
+.all-info-container{
+  display: inline-block;
+}
+
+.combine-container{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: white;
+  height: 80px;
+  width: 300px;
+  margin: 1rem;
+  border-radius: 5px;
+  float: left;
+  box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+  overflow: hidden;
+}
+
+#search-ip-container{
+  height: 60px;
+
+}
+#search-box{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: black;
+  width: 500px;
+}
+#search-ip{
+  padding: .5rem 1rem;
+  border: none;
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+  width: 400px;
+}
+
+#search-ip-container button{
+  padding: .5rem 1rem;
+  border: none;
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+  width: 100px;
+  cursor: pointer;
+}
